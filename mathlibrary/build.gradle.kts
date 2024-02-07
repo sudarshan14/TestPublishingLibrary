@@ -1,6 +1,10 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    `maven-publish`
 }
 
 android {
@@ -29,6 +33,39 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+}
+
+val githubProperties = Properties()
+if (rootProject.file("local.properties").exists()) {
+    githubProperties.load(FileInputStream(rootProject.file("local.properties")))
+}
+//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
+//github-maven-publish
+publishing{
+ publications {
+     create<MavenPublication>("math-library"){
+         run{
+             groupId ="com.amlavati"
+             artifactId ="mathlib"
+             version ="0.1"
+             artifact(
+                 "build/outputs/aar/mathlibrary-release.aar"
+             )
+         }
+
+     }
+ }
+
+    repositories{
+        maven {
+            name ="GithubPackages"
+            url = uri("https://maven.pkg.github.com/sudarshan14/TestPublishingLibrary")
+            credentials{
+                username = (githubProperties["gh_username"] ?: System.getenv("USERNAME")).toString()
+                password = (githubProperties["gh_key"] ?: System.getenv("TOKEN")).toString()
+            }
+        }
     }
 }
 
