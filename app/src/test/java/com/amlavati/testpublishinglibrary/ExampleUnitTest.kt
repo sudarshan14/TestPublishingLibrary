@@ -2,6 +2,7 @@ package com.amlavati.testpublishinglibrary
 
 import com.amlavati.mathlibrary.Point
 import com.amlavati.mathlibrary.calculateDistanceTo
+import com.amlavati.utilitylib.Utility
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -13,11 +14,17 @@ import org.junit.Assert.*
  */
 class ExampleUnitTest {
     @Test
-    fun addition_isCorrect() {
+    fun testPointLibraryIsAvailable() {
         val point1 = Point(2.0, 3.0)
         val point2 = Point(2.0, 3.0)
         print(point1.calculateDistanceTo(point2))
         assertEquals(4, 2 + 2)
-        assertEquals(4, 2 + 2)
+    }
+
+    @Test
+    fun testIsLocalMavenUtilityLibIsPresent(){
+
+        val obj = Utility()
+        println( obj.myUtility())
     }
 }

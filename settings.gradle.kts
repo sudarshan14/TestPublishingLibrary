@@ -1,6 +1,9 @@
 import java.io.FileInputStream
 import java.util.Properties
 
+include(":localmavenlibrary")
+
+
 pluginManagement {
     repositories {
         google {
@@ -12,6 +15,7 @@ pluginManagement {
         }
         mavenCentral()
         gradlePluginPortal()
+        mavenLocal()
     }
 }
 
@@ -24,6 +28,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        mavenLocal()
         maven {
             url = uri("https://maven.pkg.github.com/sudarshan14/TestPublishingLibrary")
             credentials{
@@ -36,4 +41,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "TestPublishingLibrary"
 include(":app")
-include(":mathlibrary")
+include(":gitgubpackageslibrary")
