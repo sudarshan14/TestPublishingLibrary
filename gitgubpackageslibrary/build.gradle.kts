@@ -47,7 +47,7 @@ publishing{
      create<MavenPublication>("github-package-library"){
          run{
              groupId ="com.amlavati"
-             artifactId ="githubpackages"
+             artifactId ="github-package-library"
              version ="0.1"
              artifact(
                  "build/outputs/aar/gitgubpackageslibrary-release.aar"
