@@ -40,7 +40,7 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    implementation("com.amlavati:github-package-library:0.1")
+    implementation("com.amlavati:github-package-library:0.0.2")
     implementation("com.amlavati:local-maven-lib:0.1")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
